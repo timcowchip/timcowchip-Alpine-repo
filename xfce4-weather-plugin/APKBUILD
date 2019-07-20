@@ -1,0 +1,36 @@
+# Contributor: Chris Farrell <timcowchip@gorge.net>
+# Maintainer: Chris Farrell <timcowchip@gorge.net>
+pkgname="xfce4-weather-plugin"
+pkgver=0.9.1
+pkgrel=1
+pkgdesc="A weather plugin for the Xfce4 panel"
+arch="x86_64"
+url="https://goodies.xfce.org/projects/panel-plugins/xfce4-weather-plugin"
+license="GPL2"
+options="!check"
+depends="xfce4-panel-dev libxml2-dev libsoup-dev hicolor-icon-theme"
+makedepends="intltool"
+subpackages=""
+source="https://archive.xfce.org/src/panel-plugins/xfce4-weather-plugin/0.9/xfce4-weather-plugin-0.9.1.tar.bz2"
+builddir="$srcdir/$pkgname-$pkgver"
+
+build() {
+  cd "$builddir"
+
+  ./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --libexecdir=/usr/lib \
+    --localstatedir=/var \
+    --disable-static \
+    --disable-debug \
+    --disable-upower
+  make
+}
+
+package() {
+  cd "$builddir"
+  make DESTDIR="$pkgdir" install
+}
+
+sha512sums="f8f50ad629719193f18cf9106379a7de7ba4ba0824eca3ec3716031cd46f5631280ff446fe651326097e3fbe6703c1d29f2ce044b1eada1613b198d30d167d09  xfce4-weather-plugin-0.9.1.tar.bz2"
