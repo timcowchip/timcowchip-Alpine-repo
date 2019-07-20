@@ -1,0 +1,33 @@
+# Contributor: Chris Farrell <timcowchip@gorge.net>
+# Maintainer: Chris Farrell <timcowchip@gorge.net>
+pkgname="blueman"
+pkgver="2.1"
+pkgrel=1
+pkgdesc="GTK+ Bluetooth Manager"
+url="https://github.com/blueman-project/blueman"
+arch="x86_64"
+license="LGPL-3.0-or-later"
+depends="bluez bluez-libs gtk+3.0 py3-cairo py3-gobject3"
+makedepends="cython intltool iproute2"
+subpackages="$pkgname-doc"
+source="https://github.com/blueman-project/$pkgname/releases/download/$pkgver/$pkgname-$pkgver.tar.xz"
+builddir="$srcdir/$pkgname-$pkgver"
+
+build() {
+  cd $builddir
+  ./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --libexecdir=/usr/lib/$pkgname \
+    --disable-schemas-compile \
+    --with-dhcp-config='/etc/dhcpd.conf'
+  make
+}
+
+package() {
+  cd $builddir
+  make DESTDIR="$pkgdir" install
+  install -d -o root -g 102 -m 750 "$pkgdir/usr/share/polkit-1/rules.d"
+}
+
+sha512sums="b675b9edc4fbf4c27f48d3e59bafbe555e59d6d21f7f9358fdd5741b1c7584490010cc5f53f812a7640f0c45aaa29ec4a946548b2a33dfddd7dcad4cce54400c  blueman-2.1.tar.xz"
