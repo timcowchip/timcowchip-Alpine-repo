@@ -1,0 +1,26 @@
+# Contributor: Chris Farrell <timcowchip@gorge.net>
+# Maintainer: Chris Farrell <timcowchip@gorge.net>
+pkgname="podcastparser"
+pkgver="0.6.4"
+pkgrel=1
+pkgdesc="Simplified, fast RSS parsing library in Python"
+url="https://github.com/gpodder/podcastparser"
+arch="noarch"
+license="GPL2"
+depends="python3"
+makedepends="py3-setuptools"
+options="!check"
+subpackages=""
+source="$pkgname-$pkgver.tar.gz::https://github.com/gpodder/$pkgname/archive/$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver"
+
+build() {
+ 	cd "$builddir"
+  	python3 setup.py build	 
+}
+package() {
+	cd "$builddir"
+  	python3 setup.py install --root="$pkgdir"
+}
+sha512sums="ab68cd3ec663a616f8c9c700cf455f016f966d5c19d03d0448228e133719ecb75cd7643d9cf8a437954885ed58b81087b66ee67c89ce17202b6fa1d7584106bc  podcastparser-0.6.4.tar.gz"
+
