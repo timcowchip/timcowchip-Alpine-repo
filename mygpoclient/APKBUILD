@@ -1,0 +1,24 @@
+# Contributor: Chris Farrell <timcowchip@gorge.net>
+# Maintainer: Chris Farrell <timcowchip@gorge.net>
+pkgname="mygpoclient"
+pkgver="1.8"
+pkgrel=1
+pkgdesc="Python client Library for the gpodder.net web service"
+url="https://github.com/gpodder/mygpoclient"
+arch="noarch"
+license="GPL2"
+depends="python3"
+makedepends="py3-setuptools"
+options="!check"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::https://github.com/gpodder/$pkgname/archive/$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver"
+build() {
+ 	cd "$builddir"
+  	python3 setup.py install --root="$pkgdir"	 
+}
+package() {
+	cd "$builddir"
+  	python3 setup.py install --root="$pkgdir"
+}
+sha512sums="1edecd5ccb116c7f4017ebe6572439d87ff76501ed0628934e548dc0c9c041127a11ec9f4def4a54a6f7fabe46a461c863ec2ff2f8c14c3c67b5d1fd9285bb9f  mygpoclient-1.8.tar.gz"
