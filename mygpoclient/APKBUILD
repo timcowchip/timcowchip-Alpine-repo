@@ -15,7 +15,7 @@ source="$pkgname-$pkgver.tar.gz::https://github.com/gpodder/$pkgname/archive/$pk
 builddir="$srcdir/$pkgname-$pkgver"
 build() {
  	cd "$builddir"
-  	python3 setup.py install --root="$pkgdir"	 
+  	python3 setup.py build	 
 }
 package() {
 	cd "$builddir"
