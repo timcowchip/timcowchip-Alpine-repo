@@ -1,0 +1,26 @@
+# Contributor: Chris Farrell <timcowchip@gorge.net>
+# Maintainer: Chris Farrell <timcowchip@gorge.net>
+pkgname="gpodder"
+pkgver="3.10.9"
+pkgrel=1
+pkgdesc="Podcast client written in Python"
+url="https://gpodder.github.io/"
+arch="noarch"
+license="GPL2"
+depends="py3-cairo py3-dbus py3-gobject3 mygpoclient podcastparser"
+makedepends="intltool"
+options="!check"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::http://github.com/gpodder/$pkgname/archive/$pkgver.tar.gz"
+builddir="$srcdir/$pkgname-$pkgver"
+
+build() {
+	cd "$builddir"
+	make
+}
+package() {
+	cd "$builddir"
+	make DESTDIR="$pkgdir" install
+}
+sha512sums="b2141dace083e6bd02d4a9df7df4b6126045015d20603a1391bde35d0b516452c4d65e004d5cb4f654e0bc887ba1db39da24d87d6a488a87f67d0afe06217030  gpodder-3.10.9.tar.gz"
+
