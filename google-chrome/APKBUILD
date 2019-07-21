@@ -1,0 +1,26 @@
+# Contributor: Chris Farrell <timcowchip@gorge.net>
+# Maintainer: Chris Farrell <timcowchip@gorge.net>
+pkgname="google-chrome"
+pkgver="75"
+pkgrel=1
+pkgdesc="web browser by Google (Stable Channel)"
+url="https://www.google.com/chrome"
+arch="x86_64"
+license="LGPL-3.0-or-later"
+depends="alsa-lib libxtst nss cups"
+options="!check !fhs !strip"
+subpackages="$pkgname-doc"
+source="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+builddir="$srcdir/"
+
+build() {
+  bsdtar -xf google-chrome-stable_current_amd64.deb
+}
+
+
+package() {
+  mkdir -p $pkgdir
+  bsdtar -xf data.tar.xz -C "$pkgdir/"
+  chmod 00755 $pkgdir/opt/google/chrome/chrome-sandbox
+}
+sha512sums="a700ea6f02865b581225092f7f8c934ac862eb6510d8fbf2261522efa3f0cb629f8b30243b06d3e31054ab79c336c8a350c6cf4abdd5e14d30faa3e9dd01f3c0  google-chrome-stable_current_amd64.deb"
