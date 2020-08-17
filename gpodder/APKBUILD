@@ -1,7 +1,7 @@
 # Contributor: Chris Farrell <timcowchip@gorge.net>
 # Maintainer: Chris Farrell <timcowchip@gorge.net>
 pkgname="gpodder"
-pkgver="3.10.11"
+pkgver="3.10.16"
 pkgrel=1
 pkgdesc="Podcast client written in Python"
 url="https://gpodder.github.io/"
