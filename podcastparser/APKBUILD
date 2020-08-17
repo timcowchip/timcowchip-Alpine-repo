@@ -1,7 +1,7 @@
 # Contributor: Chris Farrell <timcowchip@gorge.net>
 # Maintainer: Chris Farrell <timcowchip@gorge.net>
 pkgname="podcastparser"
-pkgver="0.6.4"
+pkgver="0.6.5"
 pkgrel=1
 pkgdesc="Simplified, fast RSS parsing library in Python"
 url="https://github.com/gpodder/podcastparser"
