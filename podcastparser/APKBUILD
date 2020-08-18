@@ -22,5 +22,5 @@ package() {
 	cd "$builddir"
   	python3 setup.py install --root="$pkgdir"
 }
-sha512sums="ab68cd3ec663a616f8c9c700cf455f016f966d5c19d03d0448228e133719ecb75cd7643d9cf8a437954885ed58b81087b66ee67c89ce17202b6fa1d7584106bc  podcastparser-0.6.4.tar.gz"
+sha512sums="f494ed3c2d7454fa627ade0b378c5c4b68bfbcd7c98f7d516523c5902a0ae54e5a88a0c8e13b9844f7d8f964a17eedcce1c7518a2df4f3aa0ab8257265dbe2ff  podcastparser-0.6.5.tar.gz"
 
