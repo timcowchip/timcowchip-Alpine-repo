@@ -1,7 +1,7 @@
 # Contributor: Chris Farrell <timcowchip@gorge.net>
 # Maintainer: Chris Farrell <timcowchip@gorge.net>
 pkgname="gpodder"
-pkgver="3.10.16"
+pkgver="3.10.17"
 pkgrel=1
 pkgdesc="Podcast client written in Python"
 url="https://gpodder.github.io/"
@@ -23,4 +23,4 @@ package() {
 	make DESTDIR="$pkgdir" install
 }
 
-sha512sums="ce9525864e5a640dd82fb535021d63e1d1ddeb7785774b00c668ff86a279a45e075ab7488120ec93d1a07a0a943daa0abb786f822d74866e0fd8c6713d7f8531  gpodder-3.10.16.tar.gz"
+sha512sums="f3271b6986275b30c78d1571384c6fd054111b25d6fa7e642796e205122dde41f14f277ef144d21c64793693cbc4d2f42718ba0aa1ece33308c81f68ca29e49f  gpodder-3.10.17.tar.gz"
